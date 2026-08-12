@@ -134,7 +134,7 @@ function CutoutPortrait() {
       {/* portrait */}
       <img
         src={portraitCutout}
-        alt="Carina Schädlich"
+        alt=""
         className="absolute bottom-12 left-1/2 z-10 max-h-97.5 w-auto max-w-full -translate-x-1/2 object-contain transition-transform duration-500 ease-out hover:scale-[1.015] md:bottom-12 md:max-h-125 lg:bottom-0 lg:max-h-150"
       />
 

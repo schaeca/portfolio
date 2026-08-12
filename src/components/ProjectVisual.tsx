@@ -18,7 +18,7 @@ export default function ProjectVisual({ type }: ProjectVisualProps) {
 
 function ProductVisual() {
   return (
-    <div className="aspect-4/3 overflow-hidden border border-border bg-background transition-transform duration-500 group-hover:-translate-y-1">
+    <div aria-hidden = "true" className="aspect-4/3 overflow-hidden border border-border bg-background transition-transform duration-500 group-hover:-translate-y-1">
       {/* browser bar */}
       <div className="flex h-8 items-center gap-1.5 border-b border-border px-3">
         <span className="h-2 w-2 rounded-full bg-border" />
@@ -64,7 +64,7 @@ function ProductVisual() {
 
 function SystemVisual() {
   return (
-    <div className="relative flex aspect-4/3 items-center justify-center overflow-hidden border border-border bg-background p-6 transition-transform duration-500 group-hover:-translate-y-1">
+    <div aria-hidden = "true" className="relative flex aspect-4/3 items-center justify-center overflow-hidden border border-border bg-background p-6 transition-transform duration-500 group-hover:-translate-y-1">
       <div className="relative flex w-full flex-col items-center">
         {/* Portfolio */}
         <ArchitectureNode label="Portfolio" />
@@ -121,7 +121,7 @@ function ArchitectureNode({
 
 function ExperienceVisual() {
   return (
-    <div className="aspect-4/3 overflow-hidden border border-border bg-background transition-transform duration-500 group-hover:-translate-y-1">
+    <div aria-hidden = "true" className="aspect-4/3 overflow-hidden border border-border bg-background transition-transform duration-500 group-hover:-translate-y-1">
       {/* browser bar */}
       <div className="flex h-8 items-center gap-1.5 border-b border-border px-3">
         <span className="h-2 w-2 rounded-full bg-border" />

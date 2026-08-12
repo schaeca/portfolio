@@ -36,7 +36,17 @@ export default function Navbar() {
 
     const previousOverflow = document.body.style.overflow;
 
+    
+    const main =
+    document.querySelector("main");
+    
+    const footer =
+    document.querySelector("footer");
+    
     document.body.style.overflow = "hidden";
+
+    main?.setAttribute("inert", "");
+  footer?.setAttribute("inert", "");
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -48,6 +58,8 @@ export default function Navbar() {
 
     return () => {
       document.body.style.overflow = previousOverflow;
+      main?.removeAttribute("inert");
+    footer?.removeAttribute("inert");
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen]);
@@ -78,7 +90,7 @@ export default function Navbar() {
         </a>
 
         {/* DESKTOP NAVIGATION */}
-        <div className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -88,7 +100,7 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-        </div>
+        </nav>
 
         {/* MOBILE HAMBURGER */}
         <button
@@ -127,7 +139,7 @@ export default function Navbar() {
         </button>
 
         {/* MOBILE MENU */}
-        <div
+        <nav
           id="mobile-navigation"
           className={`fixed inset-0 flex flex-col overflow-y-auto overscroll-contain bg-background px-6 pt-28 transition-all duration-300 lg:hidden ${
             isOpen
@@ -163,7 +175,7 @@ export default function Navbar() {
               Augsburg, Germany
             </p>
           </div>
-        </div>
+        </nav>
       </nav>
     </header>
   );
