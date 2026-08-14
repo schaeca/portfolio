@@ -9,37 +9,37 @@ export type JourneyItem = {
 export const journeyItems: JourneyItem[] = [
   {
     id: "consulting",
-    label: "IT Consulting",
+    label: "IT Consultant",
     title: "Understanding complex systems.",
     description:
-      "Working with enterprise software environments, translating business requirements into technical solutions and learning to navigate complexity.",
+      "Working with enterprise software environments, translating business requirements into scalable technical solutions.",
   },
   {
     id: "senior-consultant",
-    label: "Senior Consultant",
+    label: "Senior Atlassian Consultant",
     title: "Taking ownership.",
     description:
-      "Designing larger solutions, making architectural decisions and taking responsibility from requirements through implementation.",
+      "Designing larger-scale solutions, making architectural decisions and taking responsibility from requirements through implementation.",
   },
   {
     id: "team-lead",
-    label: "Team Lead",
+    label: "Project Lead",
     title: "Leading people and delivery.",
     description:
-      "Supporting teams, coordinating complex work and connecting people, processes and technology to move projects forward.",
+      "Leading teams and delivery while connecting people, processes and technology across complex enterprise projects.",
   },
   {
     id: "development",
     label: "Software Development",
     title: "Building the solution myself.",
     description:
-      "Expanding my development skills and turning ideas into real products with React, TypeScript, Node and modern web technologies.",
+      "Turning ideas into working products with React, TypeScript, Node.js and modern web technologies — from frontend interfaces to APIs and data models.",
   },
   {
     id: "today",
     label: "Today",
     title: "What's next?",
     description:
-      "Looking for my next opportunity in frontend or full-stack development — bringing both development skills and years of experience solving real-world IT problems.",
+      "Looking for my next role in frontend or full-stack development — bringing hands-on development skills together with years of experience solving complex business and technology challenges.",
   },
 ];

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import CVLink from "./CVLink";
 
 const navItems = [
-  { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
+  { label: "About", href: "#about" },
   { label: "Journey", href: "#journey" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
@@ -100,6 +101,7 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
+          <CVLink className="text-sm"/>
         </nav>
 
         {/* MOBILE HAMBURGER */}
@@ -147,6 +149,7 @@ export default function Navbar() {
               : "invisible -translate-y-4 opacity-0"
           }`}
         >
+          {/* Section links */}
           <div className="flex flex-col">
             {navItems.map((item, index) => (
               <a
@@ -166,6 +169,12 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* CV action */}
+          <div className="mt-2 py-4">
+            <CVLink className="text-[clamp(1.4rem,5vw,2rem)] font-semibold tracking-[-0.03em]"/>
+          </div>
+
+            {/* Footer */}
           <div className="mt-auto pb-10">
             <p className="text-sm text-muted">
               Frontend / Full-Stack Developer

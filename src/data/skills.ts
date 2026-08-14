@@ -23,7 +23,7 @@ export const skillGroups: SkillGroup[] = [
       "MongoDB",
       "Mongoose",
       "REST APIs",
-      "Authentication",
+      "JWT Authentication",
     ],
   },
   {
@@ -34,13 +34,12 @@ export const skillGroups: SkillGroup[] = [
       "Zod",
       "Vite",
       "Agile / Scrum / SAFe",
-      "CI/CD Basics",
     ],
   },
   {
     title: "Beyond the Code",
     skills: [
-      "Requirements Analysis",
+      "Requirements Engineering",
       "Solution Design",
       "Stakeholder Management",
       "Process Optimization",

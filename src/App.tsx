@@ -1,26 +1,17 @@
-import About from "./components/About";
-import Journey from "./components/CareerJourney";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import SelectedWork from "./components/SelectedWork";
-import Skills from "./components/Skills";
+import { Route, Routes } from "react-router";
+import Home from "./pages/Home";
+import TeamentialCaseStudy from "./pages/TeamentialCaseStudy";
+import JiraCaseStudy from "./pages/JiraCaseStudy";
 
 function App() {
   return (
-    <>
-    <Navbar/>
-    <main>
-      <Hero/>
-      <SelectedWork/>
-      <About/>
-      <Journey/>
-      <Skills/>
-      <Contact/>
-    </main>
-    <Footer/>
-    </>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+
+      <Route path="/work/teamential" element={<TeamentialCaseStudy/>}/>
+
+      <Route path="/work/jira-safe" element={<JiraCaseStudy/>}/>
+    </Routes>
   );
 }
 

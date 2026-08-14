@@ -24,6 +24,7 @@ export default function SelectedWork() {
           <p className="max-w-md text-base leading-7 text-muted lg:justify-self-end">
             Different challenges. Different contexts. The same mindset:
             understand deeply, think clearly and build with purpose.
+            Three projects across product, enterprise systems and client work — each shaped by a different context, user need and technical challenge.
           </p>
         </div>
 

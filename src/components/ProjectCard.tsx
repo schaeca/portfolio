@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { type Project } from "../data/projects";
 import ProjectVisual from "./ProjectVisual";
 
@@ -48,13 +49,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         {/* LINK */}
         <div className="mt-6 flex justify-end">
-          <button
-            type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-foreground text-lg transition-all duration-300 group-hover:-rotate-45 group-hover:bg-foreground group-hover:text-background"
-            aria-label={`Explore ${project.title}`}
-          >
-            →
-          </button>
+          {project.href ? (
+            <Link
+              to={project.href}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-foreground text-lg transition-all duration-300 group-hover:-rotate-45 group-hover:bg-foreground group-hover:text-background"
+              aria-label={`Explore ${project.title}`}
+            >
+              →
+            </Link>
+          ) : (
+            <span
+              aria-hidden="true"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-lg text-muted"
+            >
+              →
+            </span>
+          )}
         </div>
       </div>
     </article>

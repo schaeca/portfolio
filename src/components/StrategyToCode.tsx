@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const journeyItems = [
   "Consulting",
-  "People",
+  "User Perspective",
   "Problem Solving",
   "Development",
   "Products",

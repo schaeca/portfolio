@@ -1,3 +1,5 @@
+import CVLink from "./CVLink";
+
 const contactLinks = [
   {
     label: "Email",
@@ -42,12 +44,10 @@ export default function Contact() {
           {/* RIGHT */}
           <div className="lg:pb-2">
             <p className="max-w-md text-base leading-7 text-background/65 md:text-lg md:leading-8">
-              I&apos;m currently looking for my next opportunity in frontend or
-              full-stack development — and always happy to talk about
-              interesting products, problems and ideas.
+              I'm looking for my next role in frontend or full-stack development. If you're building thoughtful digital products and think my mix of development and consulting experience could be useful, I'd love to talk.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-x-7 gap-y-4">
+            <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
               {contactLinks.map((link) => (
                 <a
                   key={link.label}
@@ -74,6 +74,7 @@ export default function Contact() {
                   </span>
                 </a>
               ))}
+              <CVLink/>
             </div>
           </div>
         </div>

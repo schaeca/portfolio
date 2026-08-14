@@ -121,9 +121,7 @@ export default function Journey() {
           </div>
 
           <p className="max-w-md text-base leading-7 text-muted lg:justify-self-end">
-            Different roles, growing responsibility and one
-            consistent thread: understanding complex problems
-            and getting closer to building the solution myself.
+            Different roles, growing responsibility and an increasing focus on turning ideas and requirements into things people can actually use.
           </p>
         </div>
 

@@ -46,8 +46,7 @@ export default function About() {
           {/* RIGHT */}
           <div className="lg:pt-12">
             <p className="max-w-xl font-serif text-[clamp(1.5rem,2.5vw,2.1rem)] leading-[1.2] italic text-accent">
-              The goal was never just to understand complex systems — I wanted
-              to build better ones.
+              Understanding complex systems was never enough — I wanted to get closer to building the solutions myself.
             </p>
 
             <div className="mt-8 max-w-xl space-y-5 text-base leading-7 text-muted md:text-lg md:leading-8">
@@ -66,10 +65,7 @@ export default function About() {
               </p>
 
               <p>
-                Now I'm bringing that mindset into frontend and full-stack
-                development — combining technical implementation with the
-                strategic and human perspective I developed throughout my
-                previous career.
+                Now I'm bringing that mindset into frontend and full-stack development — combining hands-on implementation with the strategic and human perspective I developed through years of consulting.
               </p>
             </div>
           </div>
