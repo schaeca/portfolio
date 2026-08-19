@@ -1,35 +1,37 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router";
+
+import dashboardImage from "../assets/projects/teamential/dashboard.png";
+import landingPageImage from "../assets/projects/teamential/landing-page.png";
+import matchDayDetailImage from "../assets/projects/teamential/match-day-detail.png";
+import playerProfileImage from "../assets/projects/teamential/player-profile.png";
+import squadEditImage from "../assets/projects/teamential/squad-edit.png";
+import squadOverviewImage from "../assets/projects/teamential/squad-overview.png";
 
 const features = [
   {
     number: "01",
     title: "Match Day Hub",
     description:
-      "Centralised match-day information including opponents, kickoff times, locations and match-day types.",
+      "Centralised match day information including opponents, tournament types, locations, kickoff times and squad planning.",
   },
   {
     number: "02",
-    title: "Squad Availability",
+    title: "Squad Planning",
     description:
-      "Players can manage their availability while coaches get a clear overview for squad planning.",
+      "Player availability flows into lineup planning, including starters, substitutes and playing positions.",
   },
   {
     number: "03",
     title: "Player Management",
     description:
-      "A structured player database combining team-relevant information, availability and profile data.",
+      "Structured player profiles connect positions, availability, team information and match statistics.",
   },
   {
     number: "04",
-    title: "Team Voting",
+    title: "Secure Team Access",
     description:
-      "Post-match voting for Player of the Day and Hammer of the Day, including controlled reveal flows.",
-  },
-  {
-    number: "05",
-    title: "Hall of Fame",
-    description:
-      "A shared history of previous awards that turns recurring team rituals into part of the product.",
+      "Protected application areas connect authenticated users with the permissions and team information relevant to them.",
   },
 ];
 
@@ -52,7 +54,7 @@ const technicalDecisions = [
   {
     title: "MongoDB + Mongoose",
     description:
-      "The data model reflects relationships between users, players, teams, match days, squads and votes.",
+      "The data model reflects relationships between users, players, teams, match days and squads.",
   },
   {
     title: "JWT Authentication",
@@ -73,7 +75,7 @@ export default function TeamentialCaseStudy() {
       <section className="page-container pt-8 pb-20 md:pt-10 md:pb-28 lg:pb-36">
         <Link
           to="/"
-          className="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] transition-colors hover:text-accent"
+          className="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-colors hover:text-accent"
         >
           <span
             aria-hidden="true"
@@ -84,35 +86,58 @@ export default function TeamentialCaseStudy() {
           Back to portfolio
         </Link>
 
-        <div className="mt-20 max-w-6xl md:mt-28">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
-            01 / Case Study
-          </p>
+        <div className="mt-20 grid gap-12 md:mt-28 lg:grid-cols-[1.15fr_0.55fr] lg:items-center lg:gap-16">
+          {/* HERO TEXT */}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              01 / Case Study
+            </p>
 
-          <h1 className="mt-5 text-[clamp(4rem,11vw,9rem)] leading-[0.82] font-extrabold tracking-[-0.065em]">
-            TEAMENTIAL
-            <span className="text-accent">.</span>
-          </h1>
+            <h1 className="mt-5 text-[clamp(4rem,11vw,9rem)] leading-[0.82] font-extrabold tracking-[-0.065em] lg:text-[clamp(4rem,7vw,7.5rem)]">
+              TEAMENTIAL
+              <span className="text-accent">.</span>
+            </h1>
 
-          <p className="mt-8 max-w-3xl font-serif text-[clamp(1.8rem,4vw,3.5rem)] leading-[1.05] italic text-accent">
-            A team hub built from real-world needs.
-          </p>
+            <p className="mt-8 max-w-3xl font-serif text-[clamp(1.8rem,4vw,3.5rem)] leading-[1.05] italic text-accent lg:text-[clamp(1.8rem,3vw,3rem)]">
+              A team hub built from real-world needs.
+            </p>
 
-          <p className="mt-8 max-w-2xl text-base leading-7 text-muted md:text-lg md:leading-8">
-            A full-stack web application designed to simplify the everyday
-            organisation of an amateur sports team — from match-day planning
-            and squad availability to player management and team voting.
-          </p>
+            <p className="mt-8 max-w-2xl text-base leading-7 text-muted md:text-lg md:leading-8">
+              A full-stack web application designed to simplify the everyday
+              organisation of an amateur sports team — from match day planning
+              and squad availability to player management and team workflows.
+            </p>
+            <div className="mt-6 flex items-start gap-3 border-l-2 border-accent pl-4">
+  <span className="text-accent">✦</span>
+
+  <p className="max-w-2xl text-sm leading-6 text-muted">
+    Selected as one of six WBS Coding School showcase projects and presented
+    to an audience of around 200 participants.
+  </p>
+</div>
+          </div>
+
+
+          {/* PRODUCT PREVIEW */}
+          <div className="mx-auto w-full max-w-sm lg:mx-0 lg:justify-self-end">
+            <ScreenshotFrame>
+              <img
+                src={landingPageImage}
+                alt="Teamential landing page presenting the product and its core team management features"
+                className="block h-auto w-full"
+              />
+            </ScreenshotFrame>
+          </div>
         </div>
 
         {/* PROJECT META */}
-        <div className="mt-16 grid border-y border-border py-7 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
+        <div className="mt-16 grid border-y border-border py-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
           <ProjectMeta label="Role" value="Full-Stack Developer" />
+
           <ProjectMeta label="Focus" value="Product · UX · Development" />
-          <ProjectMeta
-            label="Stack"
-            value="React · TypeScript · Node.js"
-          />
+
+          <ProjectMeta label="Stack" value="React · TypeScript · Node.js" />
+
           <ProjectMeta label="Context" value="Real team workflow" />
         </div>
       </section>
@@ -125,23 +150,21 @@ export default function TeamentialCaseStudy() {
       >
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <p className="font-serif text-3xl leading-tight italic text-accent md:text-4xl">
-            Instead of inventing a fictional problem, I built around workflows
-            I had experienced myself.
+            Instead of inventing a fictional problem, I built around workflows I
+            had experienced myself.
           </p>
 
           <div className="space-y-6 text-base leading-7 text-muted md:text-lg md:leading-8">
             <p>
               Teamential was created around the needs of an amateur rugby team.
-              Match-day information, squad planning, player details and
-              recurring team rituals existed across different conversations,
-              tools and manual processes.
+              Match day information, squad planning, player details and
+              recurring organisational tasks existed across different
+              conversations, tools and manual processes.
             </p>
 
             <p>
               That made the project an opportunity to build more than a
-              technical demo. I could start with actual users, existing
-              behaviours and concrete organisational pain points — and turn
-              those into a product.
+              technical demo. I could start with real users, existing behaviours and concrete organisational pain points — and turn those into a product.
             </p>
           </div>
         </div>
@@ -157,17 +180,17 @@ export default function TeamentialCaseStudy() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <ProblemCard
             title="Fragmented information"
-            text="Important match-day details and team information were distributed across chats and different tools."
+            text="Important match day details and team information were distributed across chats and different tools."
           />
 
           <ProblemCard
             title="Manual coordination"
-            text="Availability and squad decisions required repeated messages, follow-ups and manual overview."
+            text="Availability and squad decisions required repeated messages, follow-ups and manual tracking."
           />
 
           <ProblemCard
-            title="No shared history"
-            text="Recurring team activities such as post-match voting existed as rituals, but not as part of one shared system."
+            title="Disconnected workflows"
+            text="Player information, match days and squad decisions were related in practice, but not connected in one shared system."
           />
         </div>
       </CaseStudySection>
@@ -202,13 +225,13 @@ export default function TeamentialCaseStudy() {
             <ApproachStep
               number="03"
               title="Model"
-              text="Translate those workflows into entities and relationships such as users, players, match days, squads and votes."
+              text="Translate those workflows into entities and relationships such as users, players, teams, match days and squads."
             />
 
             <ApproachStep
               number="04"
               title="Build & iterate"
-              text="Implement the flows end to end and refine both the interface and underlying application structure as the product evolved."
+              text="Implement the flows end-to-end and refine both the interface and underlying application structure as the product evolved."
             />
           </div>
         </div>
@@ -218,10 +241,10 @@ export default function TeamentialCaseStudy() {
       <CaseStudySection
         number="04"
         label="The Product"
-        title="ONE HUB. FIVE CORE WORKFLOWS."
+        title="ONE HUB. BUILT AROUND REAL TEAM WORKFLOWS."
         surface
       >
-        <div className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => (
             <article
               key={feature.number}
@@ -231,39 +254,137 @@ export default function TeamentialCaseStudy() {
                 {feature.number}
               </span>
 
-              <h3 className="mt-5 text-xl font-bold">
-                {feature.title}
-              </h3>
+              <h3 className="mt-5 text-xl font-bold">{feature.title}</h3>
 
-              <p className="mt-3 leading-7 text-muted">
-                {feature.description}
-              </p>
+              <p className="mt-3 leading-7 text-muted">{feature.description}</p>
             </article>
           ))}
         </div>
+
+        {/* NEXT ITERATION */}
+        <div className="mt-16 border-t border-border pt-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+            Next Iteration
+          </p>
+
+          <p className="mt-4 max-w-2xl leading-7 text-muted">
+            The product roadmap extends the existing match day workflow with
+            team voting and a shared history of previous awards.
+          </p>
+
+          <div className="mt-7 grid gap-4 md:grid-cols-2">
+            <PlannedFeature title="Team Voting" />
+            <PlannedFeature title="Hall of Fame" />
+          </div>
+        </div>
       </CaseStudySection>
 
-      {/* SCREENSHOT PLACEHOLDER */}
+      {/* DASHBOARD */}
       <section className="page-container py-20 md:py-28 lg:py-36">
-        <div className="overflow-hidden border border-border bg-surface">
-          <div className="flex items-center gap-2 border-b border-border px-5 py-4">
-            <span className="h-2.5 w-2.5 rounded-full bg-muted/50" />
-            <span className="h-2.5 w-2.5 rounded-full bg-muted/50" />
-            <span className="h-2.5 w-2.5 rounded-full bg-muted/50" />
+        <div className="grid gap-8 lg:grid-cols-[0.65fr_1fr] lg:items-end">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Product Overview
+            </p>
+
+            <h2 className="mt-5 text-[clamp(2.8rem,5vw,4.8rem)] leading-[0.9] font-extrabold tracking-[-0.055em]">
+              THE TEAM AT
+              <span className="block">A GLANCE.</span>
+            </h2>
           </div>
 
-          <div className="flex min-h-[320px] items-center justify-center px-8 py-20 md:min-h-[520px]">
-            <div className="max-w-md text-center">
-              <p className="font-serif text-3xl italic text-accent">
-                Product screenshots coming here.
-              </p>
+          <p className="max-w-lg text-base leading-7 text-muted lg:justify-self-end">
+            The dashboard brings key team information together in one place —
+            upcoming match days, player availability, squad statistics and open
+            tasks without having to search through separate conversations or
+            tools.
+          </p>
+        </div>
 
-              <p className="mt-4 leading-7 text-muted">
-                We&apos;ll replace this with a focused set of real Teamential
-                screens rather than showing every part of the application.
-              </p>
+        <div className="mt-12 max-w-4xl mx-auto">
+          <ScreenshotFrame>
+            <img
+              src={dashboardImage}
+              alt="Teamential dashboard showing team statistics, match days and squad information"
+              className="block h-auto w-full"
+            />
+          </ScreenshotFrame>
+        </div>
+      </section>
+
+      {/* MATCH DAY WORKFLOW */}
+      <section className="bg-surface">
+        <div className="page-container py-20 md:py-28 lg:py-36">
+          <div className="max-w-4xl">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Match Day Workflow
+            </p>
+
+            <h2 className="mt-5 text-[clamp(2.8rem,6vw,5.5rem)] leading-[0.9] font-extrabold tracking-[-0.055em]">
+              FROM INFORMATION
+              <span className="block">TO ACTION.</span>
+            </h2>
+
+            <p className="mt-7 max-w-2xl text-base leading-7 text-muted md:text-lg md:leading-8">
+              A match day is more than a date in a calendar. It connects event
+              information, player availability and the actual squad that will
+              take the field.
+            </p>
+          </div>
+
+{/* <p className="mt-12 max-w-2xl font-serif text-2xl leading-tight italic text-accent md:text-3xl">
+            Planning doesn&apos;t stop at knowing who&apos;s available — the
+            data needs to support the decision that comes next.
+          </p> */}
+
+          <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-start">
+            {/* MATCH DAY DETAIL */}
+            <div>
+              <ScreenshotFrame>
+                <div className="flex aspect-4/3 items-center justify-center bg-foreground p-3 md:p-5">
+                  <img
+                    src={matchDayDetailImage}
+                    alt="Teamential match day detail with tournament information and selected squad"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              </ScreenshotFrame>
+
+              <div className="mt-5">
+                <p className="font-bold">Match day detail</p>
+
+                <p className="mt-2 max-w-lg text-sm leading-6 text-muted">
+                  Event information, tournament type, location and the selected
+                  squad come together in one central match day view.
+                </p>
+              </div>
+            </div>
+
+            {/* SQUAD EDIT */}
+            <div>
+              <ScreenshotFrame>
+                <div className="flex aspect-4/3 items-center justify-center bg-foreground p-3 md:p-5">
+                  <img
+                    src={squadEditImage}
+                    alt="Teamential squad editor for selecting players and assigning starting positions"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              </ScreenshotFrame>
+
+              <div className="mt-5">
+                <p className="font-bold">Squad planning</p>
+
+                <p className="mt-2 max-w-lg text-sm leading-6 text-muted">
+                  Available players can be moved into the lineup, marked as
+                  starters or substitutes and assigned to specific playing
+                  positions.
+                </p>
+              </div>
             </div>
           </div>
+
+          
         </div>
       </section>
 
@@ -271,7 +392,7 @@ export default function TeamentialCaseStudy() {
       <CaseStudySection
         number="05"
         label="Under the Hood"
-        title="BUILDING THE PRODUCT END TO END."
+        title="BUILDING THE PRODUCT END-TO-END."
       >
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {technicalDecisions.map((decision) => (
@@ -279,9 +400,7 @@ export default function TeamentialCaseStudy() {
               key={decision.title}
               className="border border-border p-6 md:p-7"
             >
-              <h3 className="text-lg font-bold">
-                {decision.title}
-              </h3>
+              <h3 className="text-lg font-bold">{decision.title}</h3>
 
               <p className="mt-4 leading-7 text-muted">
                 {decision.description}
@@ -291,24 +410,81 @@ export default function TeamentialCaseStudy() {
         </div>
       </CaseStudySection>
 
+      {/* PLAYER MANAGEMENT */}
+      <section className="bg-surface">
+        <div className="page-container py-20 md:py-28 lg:py-36">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1fr] lg:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+                Player Management
+              </p>
+
+              <h2 className="mt-5 text-[clamp(2.8rem,5vw,5rem)] leading-[0.9] font-extrabold tracking-[-0.055em]">
+                ONE PLAYER.
+                <span className="block">ONE SOURCE OF TRUTH.</span>
+              </h2>
+            </div>
+
+            <p className="max-w-lg text-base leading-7 text-muted lg:justify-self-end">
+              Player information is stored as structured data rather than
+              scattered across chats and spreadsheets, making it reusable across
+              squad planning, match days and player statistics.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-start">
+            <div>
+              <ScreenshotFrame>
+                <img
+                  src={squadOverviewImage}
+                  alt="Teamential squad overview with player positions and availability"
+                  className="block h-auto w-full"
+                />
+              </ScreenshotFrame>
+
+              <p className="mt-5 text-sm leading-6 text-muted">
+                <strong className="text-foreground">Squad overview.</strong>{" "}
+                Search and filter players by position and availability while
+                keeping the complete squad visible.
+              </p>
+            </div>
+
+            <div>
+              <ScreenshotFrame>
+                <img
+                  src={playerProfileImage}
+                  alt="Teamential player profile showing player information and match statistics"
+                  className="block h-auto w-full"
+                />
+              </ScreenshotFrame>
+
+              <p className="mt-5 text-sm leading-6 text-muted">
+                <strong className="text-foreground">Player profile.</strong> A
+                player becomes more than a name in a list — profile information,
+                team history and match statistics remain connected.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* KEY CHALLENGES */}
       <CaseStudySection
         number="06"
         label="Key Challenges"
         title="THE INTERESTING PART WASN'T JUST MAKING IT WORK."
-        surface
       >
         <div className="space-y-12">
           <Challenge
             number="01"
             title="Connecting users and players"
-            text="Authentication users and team players are related, but they are not the same concept. Keeping these concerns separate allowed the application to support player-linked users as well as roles such as coaches or administrators."
+            text="User accounts and team players are related, but they are not the same concept. Keeping these concerns separate allows the application to support player-linked users as well as roles such as coaches or administrators."
           />
 
           <Challenge
             number="02"
             title="Designing data around real workflows"
-            text="Match days connect teams, opponents, squads and votes. Modelling those relationships clearly was essential to avoid pushing business logic into individual UI components."
+            text="Match days connect teams, opponents, players and squads. Modelling those relationships clearly was essential to avoid pushing business logic into individual UI components."
           />
 
           <Challenge
@@ -330,6 +506,7 @@ export default function TeamentialCaseStudy() {
         number="07"
         label="What I Learned"
         title="BUILDING THE APP CHANGED HOW I THINK ABOUT DEVELOPMENT."
+        surface
       >
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
           <p className="font-serif text-3xl leading-tight italic text-accent md:text-4xl">
@@ -340,9 +517,9 @@ export default function TeamentialCaseStudy() {
           <div className="space-y-6 text-base leading-7 text-muted md:text-lg md:leading-8">
             <p>
               Teamential gave me the opportunity to work across the complete
-              application flow: defining requirements, modelling data,
-              designing API behaviour, building interfaces and debugging the
-              connections between them.
+              application flow: defining requirements, modelling data, designing
+              API behaviour, building interfaces and debugging the connections
+              between them.
             </p>
 
             <p>
@@ -353,9 +530,7 @@ export default function TeamentialCaseStudy() {
             </p>
 
             <p>
-              Most importantly, the project moved development from something I
-              was learning into something I could use to turn an idea into a
-              functioning product.
+              Most importantly, the project gave me hands-on experience turning an idea into a functioning product across the full stack — from requirements and data models to APIs and user interfaces.
             </p>
           </div>
         </div>
@@ -374,34 +549,42 @@ export default function TeamentialCaseStudy() {
             PRODUCT.
           </h2>
 
-          <div className="mt-10 flex flex-wrap gap-6">
+          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-5">
             <a
-              href="#"
-              className="group inline-flex items-center gap-2 font-bold uppercase tracking-[0.1em] transition-colors hover:text-accent"
+              href="https://teamential.onrender.com"
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 font-bold uppercase tracking-widest transition-colors hover:text-accent"
             >
               Live Demo
               <span
                 aria-hidden="true"
-                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
               >
                 ↗
               </span>
             </a>
 
-            <a
-              href="#"
-              className="group inline-flex items-center gap-2 font-bold uppercase tracking-[0.1em] transition-colors hover:text-accent"
-            >
-              GitHub
-              <span
-                aria-hidden="true"
-                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+            
+              <a
+                href="https://github.com/schaeca/Teamential"
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-2 font-bold uppercase tracking-widest transition-colors hover:text-accent"
               >
-                ↗
-              </span>
-            </a>
+                GitHub
+
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                >
+                  ↗
+                </span>
+              </a>
+           
           </div>
 
+          {/* NEXT CASE STUDY */}
           <div className="mt-24 border-t border-background/20 pt-8">
             <Link
               to="/work/jira-safe"
@@ -431,6 +614,10 @@ export default function TeamentialCaseStudy() {
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/*                               HELPER COMPONENTS                            */
+/* -------------------------------------------------------------------------- */
+
 type ProjectMetaProps = {
   label: string;
   value: string;
@@ -443,9 +630,7 @@ function ProjectMeta({ label, value }: ProjectMetaProps) {
         {label}
       </p>
 
-      <p className="mt-2 font-semibold">
-        {value}
-      </p>
+      <p className="mt-2 font-semibold">{value}</p>
     </div>
   );
 }
@@ -455,7 +640,7 @@ type CaseStudySectionProps = {
   label: string;
   title: string;
   surface?: boolean;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 function CaseStudySection({
@@ -492,13 +677,9 @@ type ProblemCardProps = {
 function ProblemCard({ title, text }: ProblemCardProps) {
   return (
     <article className="border-t border-foreground pt-5">
-      <h3 className="text-xl font-bold">
-        {title}
-      </h3>
+      <h3 className="text-xl font-bold">{title}</h3>
 
-      <p className="mt-4 leading-7 text-muted">
-        {text}
-      </p>
+      <p className="mt-4 leading-7 text-muted">{text}</p>
     </article>
   );
 }
@@ -509,11 +690,7 @@ type ApproachStepProps = {
   text: string;
 };
 
-function ApproachStep({
-  number,
-  title,
-  text,
-}: ApproachStepProps) {
+function ApproachStep({ number, title, text }: ApproachStepProps) {
   return (
     <div className="grid grid-cols-[auto_1fr] gap-5 border-t border-border pt-5">
       <span className="text-xs font-bold tracking-[0.14em] text-accent">
@@ -521,14 +698,50 @@ function ApproachStep({
       </span>
 
       <div>
-        <h3 className="text-xl font-bold">
-          {title}
-        </h3>
+        <h3 className="text-xl font-bold">{title}</h3>
 
-        <p className="mt-2 leading-7 text-muted">
-          {text}
-        </p>
+        <p className="mt-2 leading-7 text-muted">{text}</p>
       </div>
+    </div>
+  );
+}
+
+type PlannedFeatureProps = {
+  title: string;
+};
+
+function PlannedFeature({ title }: PlannedFeatureProps) {
+  return (
+    <div className="flex items-center justify-between gap-4 border border-border px-5 py-4">
+      <p className="font-semibold">{title}</p>
+
+      <span className="text-xs font-bold uppercase tracking-[0.14em] text-muted">
+        Planned
+      </span>
+    </div>
+  );
+}
+
+type ScreenshotFrameProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+function ScreenshotFrame({ children, className = "" }: ScreenshotFrameProps) {
+  return (
+    <div
+      className={`overflow-hidden border border-border bg-foreground shadow-[0_20px_60px_rgba(25,25,25,0.08)] ${className}`}
+    >
+      <div
+        aria-hidden="true"
+        className="flex items-center gap-2 border-b border-white/10 px-4 py-3"
+      >
+        <span className="h-2 w-2 rounded-full bg-background/35" />
+        <span className="h-2 w-2 rounded-full bg-background/35" />
+        <span className="h-2 w-2 rounded-full bg-background/35" />
+      </div>
+
+      {children}
     </div>
   );
 }
@@ -539,24 +752,16 @@ type ChallengeProps = {
   text: string;
 };
 
-function Challenge({
-  number,
-  title,
-  text,
-}: ChallengeProps) {
+function Challenge({ number, title, text }: ChallengeProps) {
   return (
     <article className="grid gap-4 border-t border-border pt-6 md:grid-cols-[5rem_0.8fr_1.2fr] md:gap-8">
       <span className="text-xs font-bold tracking-[0.14em] text-accent">
         {number}
       </span>
 
-      <h3 className="text-xl font-bold">
-        {title}
-      </h3>
+      <h3 className="text-xl font-bold">{title}</h3>
 
-      <p className="leading-7 text-muted">
-        {text}
-      </p>
+      <p className="leading-7 text-muted">{text}</p>
     </article>
   );
 }

@@ -7,8 +7,8 @@ type ProjectCardProps = {
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  return (
-    <article className="group flex h-full flex-col">
+  const content = (
+    <>
       {/* CATEGORY */}
       <div className="mb-4 flex items-center justify-between">
         <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">
@@ -27,7 +27,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       {/* CONTENT */}
       <div className="mt-6 flex flex-1 flex-col">
-        <h3 className="text-2xl font-extrabold uppercase tracking-[-0.035em]">
+        <h3
+          className={`text-2xl font-extrabold uppercase tracking-[-0.035em] ${
+            project.href
+              ? "transition-colors duration-300 group-hover:text-accent"
+              : ""
+          }`}
+        >
           {project.title}
         </h3>
 
@@ -47,26 +53,38 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        {/* LINK */}
+        {/* ACTION */}
         <div className="mt-6 flex justify-end">
-          {project.href ? (
-            <Link
-              to={project.href}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-foreground text-lg transition-all duration-300 group-hover:-rotate-45 group-hover:bg-foreground group-hover:text-background"
-              aria-label={`Explore ${project.title}`}
-            >
-              →
-            </Link>
-          ) : (
-            <span
-              aria-hidden="true"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-lg text-muted"
-            >
-              →
-            </span>
-          )}
+          <span
+            aria-hidden="true"
+            className={`flex h-10 w-10 items-center justify-center rounded-full border text-lg transition-all duration-300 ${
+              project.href
+                ? "border-foreground group-hover:-rotate-45 group-hover:bg-foreground group-hover:text-background"
+                : "border-border text-muted"
+            }`}
+          >
+            →
+          </span>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <article className="h-full">
+      {project.href ? (
+        <Link
+          to={project.href}
+          aria-label={`View ${project.title} case study`}
+          className="group flex h-full flex-col transition-transform duration-300 hover:-translate-y-1"
+        >
+          {content}
+        </Link>
+      ) : (
+        <div className="group flex h-full flex-col">
+          {content}
+        </div>
+      )}
     </article>
   );
 }
