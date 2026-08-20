@@ -1,69 +1,109 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router";
+import Footer from "../components/Footer";
+
+const architectureDomains = [
+  {
+    title: "Jira Project Configuration",
+    shortTitle: "Jira",
+    description:
+      "Project structures, shared configuration and the relationships between them.",
+  },
+  {
+    title: "Permission Concept",
+    shortTitle: "Permissions",
+    description:
+      "Role-based access designed around responsibilities and organisational needs.",
+  },
+  {
+    title: "Confluence Setup",
+    shortTitle: "Confluence",
+    description:
+      "Knowledge and collaboration structures connected to the Jira environment.",
+  },
+  {
+    title: "Assets Structure",
+    shortTitle: "Assets",
+    description:
+      "Structured organisational and reference data available across the tool landscape.",
+  },
+  {
+    title: "Further Atlassian Apps & Integrations",
+    shortTitle: "Add-ons",
+    description:
+      "Additional capabilities for visualisation, planning, dependencies and reporting.",
+  },
+  {
+    title: "Support Services",
+    shortTitle: "Support",
+    description:
+      "Service management, knowledge and support around the platform.",
+  },
+];
 
 const challenges = [
   {
     number: "01",
-    title: "Different levels of work",
+    title: "Consistency without uniformity",
     description:
-      "Team, program and portfolio-level work needed to coexist without losing the relationships between them.",
+      "Teams worked differently, but cross-team transparency required a shared language for hierarchy levels, issue types, workflows and relationships.",
   },
   {
     number: "02",
-    title: "Different teams, different needs",
+    title: "Traceability across levels",
     description:
-      "A shared architecture had to create consistency without forcing every team into exactly the same way of working.",
+      "Work needed to remain connected from higher-level initiatives down to features, stories and tasks without manually recreating information.",
   },
   {
     number: "03",
-    title: "Visibility at scale",
+    title: "Making relationships explicit",
     description:
-      "Information had to remain usable for individual teams while also supporting cross-team coordination and management reporting.",
+      "Dependencies, risks, objectives and parent-child relationships needed clear linking rules so users could understand how work related across the organisation.",
   },
   {
     number: "04",
-    title: "Governance without friction",
+    title: "Building data that could be reported",
     description:
-      "Permissions, workflows and configuration needed enough structure to remain maintainable as the organisation grew.",
+      "Cross-team reporting only becomes meaningful when the underlying Jira data follows enough common structure to be interpreted consistently.",
   },
 ];
 
 const designDecisions = [
   {
     number: "01",
-    title: "Work item model",
+    title: "Scalable hierarchy",
     description:
-      "A shared hierarchy connected work across organisational levels while keeping the underlying Jira structure understandable and maintainable.",
+      "The same architectural principles could scale from Team and ART level through Solution and Portfolio structures without redesigning the underlying model.",
   },
   {
     number: "02",
-    title: "Workflow design",
+    title: "Explicit linking model",
     description:
-      "Workflows balanced common process requirements with the flexibility teams needed for their day-to-day work.",
+      "Defined relationships connected hierarchy, dependencies, objectives and risks instead of relying on ambiguous generic links.",
   },
   {
     number: "03",
-    title: "Permissions",
+    title: "Permission concept",
     description:
-      "Permission concepts were designed around roles, responsibilities and visibility rather than configuring access project by project.",
+      "Access was designed around roles and responsibilities so permissions remained understandable and maintainable across projects.",
   },
   {
     number: "04",
-    title: "Reporting",
+    title: "Reporting-ready data",
     description:
-      "Consistent data structures created the foundation for cross-team reporting using Jira dashboards, eazyBI and Structure.",
+      "Consistent structures and relationships created a foundation for drill-downs, capacity views, roadmaps and cross-team reporting.",
   },
   {
     number: "05",
-    title: "Assets & data",
+    title: "Organisational data",
     description:
-      "Structured reference data in Assets helped connect Jira work with information that existed outside individual issues.",
+      "Assets provided structured reference data that could be reused across Jira and Confluence instead of being recreated inside individual projects.",
   },
   {
     number: "06",
-    title: "Knowledge & service",
+    title: "Governance & documentation",
     description:
-      "Service management and knowledge structures complemented delivery workflows where teams needed support, documentation and shared information.",
+      "Configuration rules, linking guidelines and documentation helped keep the architecture understandable as the environment evolved.",
   },
 ];
 
@@ -72,56 +112,56 @@ const deliverySteps = [
     number: "01",
     title: "Understand",
     description:
-      "Translate organisational structures, processes and stakeholder requirements into concrete system needs.",
+      "Analyse organisational structures, processes, ways of working and the existing tool landscape.",
   },
   {
     number: "02",
-    title: "Design",
+    title: "Define",
     description:
-      "Turn those needs into an information architecture, data model, workflows and permission concepts.",
+      "Identify the hierarchy, issue types, relationships and shared concepts that needed to form a common language.",
   },
   {
     number: "03",
-    title: "Implement",
+    title: "Translate",
     description:
-      "Configure the solution in Jira and related Atlassian tools, validating assumptions as the system took shape.",
+      "Turn methodological requirements from the delivery model into usable Jira and Atlassian structures.",
   },
   {
     number: "04",
-    title: "Transition",
+    title: "Implement",
     description:
-      "Support migrations and the move from existing structures into the new architecture without losing necessary context.",
+      "Configure projects, workflows, permissions, data structures and supporting tooling.",
   },
   {
     number: "05",
     title: "Enable",
     description:
-      "Create onboarding and training so that the architecture remained understandable beyond the people who designed it.",
+      "Document the architecture and give users guidance for applying it correctly in their daily work.",
   },
   {
     number: "06",
-    title: "Iterate",
+    title: "Evolve",
     description:
-      "Refine the solution as teams used it and new organisational or reporting requirements emerged.",
+      "Use stakeholder feedback and emerging requirements to govern and iteratively improve the system.",
   },
 ];
 
 const outcomes = [
   {
-    title: "Consistency",
-    text: "Shared structures made it easier to reason about work across teams and organisational levels.",
+    title: "Traceability",
+    text: "Work could be traced from higher-level work items down to stories and tasks while preserving the relationships in between.",
   },
   {
-    title: "Traceability",
-    text: "Relationships between team, program and portfolio work could remain visible instead of being recreated manually.",
+    title: "Dependencies & risks",
+    text: "Explicit relationships supported cross-team dependency views and structured risk management instead of relying on manual coordination.",
+  },
+  {
+    title: "Planning",
+    text: "Shared structures enabled prioritisation, capacity analysis and roadmaps across organisational boundaries.",
   },
   {
     title: "Reporting",
-    text: "More consistent underlying data provided a stronger basis for dashboards and cross-team reporting.",
-  },
-  {
-    title: "Scalability",
-    text: "Reusable concepts reduced the need to solve the same configuration problem independently for every team.",
+    text: "Consistent data supported views such as flow, predictability and work-distribution reporting across multiple levels.",
   },
 ];
 
@@ -147,7 +187,7 @@ export default function JiraCaseStudy() {
           Back to portfolio
         </Link>
 
-        <div className="mt-20 grid gap-14 md:mt-28 lg:grid-cols-[1.15fr_0.7fr] lg:items-end lg:gap-20">
+        <div className="mt-20 grid gap-14 md:mt-28 lg:grid-cols-[1.1fr_0.55fr] lg:items-center lg:gap-20">
           {/* HERO TEXT */}
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
@@ -159,6 +199,7 @@ export default function JiraCaseStudy() {
               <span className="block">
                 ARCHITECTURE
               </span>
+
               <span className="block">
                 FOR SAFe
                 <span className="text-accent">.</span>
@@ -170,22 +211,23 @@ export default function JiraCaseStudy() {
             </p>
 
             <p className="mt-8 max-w-2xl text-base leading-7 text-muted md:text-lg md:leading-8">
-              Designing and implementing a scalable Jira architecture for a
-              complex SAFe environment in the automotive industry — connecting
-              organisational structures, processes and data across team,
-              program and portfolio levels.
+              Designing and implementing a scalable Atlassian architecture for
+              a complex SAFe environment in the automotive industry —
+              translating an enterprise delivery model into tooling that
+              connected structures, processes and data across organisational
+              levels.
             </p>
           </div>
 
-          {/* HERO ARCHITECTURE PREVIEW */}
-          <ArchitecturePreview />
+          {/* SAFe PREVIEW */}
+          <SafeHierarchyPreview />
         </div>
 
         {/* META */}
-        <div className="mt-16 grid border-y border-border py-7 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
+        <div className="mt-16 grid border-y border-border py-7 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4 lg:gap-x-0">
           <ProjectMeta
             label="Role"
-            value="Senior Atlassian Consultant / Team Lead"
+            value="Senior Atlassian Consultant / Project Lead"
           />
 
           <ProjectMeta
@@ -203,6 +245,22 @@ export default function JiraCaseStudy() {
             value="Automotive Enterprise"
           />
         </div>
+
+        {/* CONFIDENTIALITY */}
+        <div className="mt-6 flex items-start gap-3 border-l-2 border-accent pl-4">
+          <span
+            aria-hidden="true"
+            className="text-accent"
+          >
+            ✦
+          </span>
+
+          <p className="max-w-3xl text-sm leading-6 text-muted">
+            For confidentiality, the architecture visuals in this case study
+            are generalised reconstructions of the solution. No customer data
+            or proprietary project content is shown.
+          </p>
+        </div>
       </section>
 
       {/* CONTEXT */}
@@ -219,17 +277,18 @@ export default function JiraCaseStudy() {
 
           <div className="space-y-6 text-base leading-7 text-muted md:text-lg md:leading-8">
             <p>
-              The environment consisted of multiple teams working within a
-              scaled agile organisation. Their work needed to connect across
-              different levels while still supporting the day-to-day needs of
-              individual teams.
+              The organisation was working within a large-scale agile
+              transformation. Individual teams needed enough flexibility to
+              work effectively, while the wider organisation needed shared
+              structures to create transparency across team boundaries and
+              organisational levels.
             </p>
 
             <p>
-              That meant architecture decisions could not be made in isolation.
-              Workflows, issue structures, permissions, reporting and reference
-              data all influenced one another — and each technical decision had
-              organisational consequences.
+              Jira therefore had to do more than support individual boards. The
+              tooling needed to translate a common delivery model into
+              structures that connected work, dependencies, organisational
+              data and reporting across a complex enterprise environment.
             </p>
           </div>
         </div>
@@ -272,33 +331,33 @@ export default function JiraCaseStudy() {
       >
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
           <p className="font-serif text-3xl leading-tight italic text-accent md:text-4xl">
-            The goal was not to create the most configurable system. It was to
-            create one people could understand, use and evolve.
+            The goal was not maximum standardisation. It was enough shared
+            structure to make the organisation understandable.
           </p>
 
           <div className="space-y-8">
             <ApproachStep
               number="01"
-              title="Understand the organisation"
-              text="Map teams, responsibilities, processes and reporting needs before translating anything into Jira configuration."
+              title="Understand the operating model"
+              text="Understand processes, ways of working, organisational structures and existing tooling before designing the Jira configuration."
             />
 
             <ApproachStep
               number="02"
-              title="Find the common structure"
-              text="Identify which concepts needed to be shared across the organisation and where variation was genuinely necessary."
+              title="Define the common language"
+              text="Identify the hierarchy levels, issue types, relationships, workflows and access concepts that needed to remain consistent."
             />
 
             <ApproachStep
               number="03"
-              title="Design for relationships"
-              text="Treat issue types, workflows, permissions and reporting as one connected architecture rather than independent configuration tasks."
+              title="Translate method into tooling"
+              text="Map the delivery model into Jira structures that preserved methodological intent while remaining practical in day-to-day work."
             />
 
             <ApproachStep
               number="04"
-              title="Design for change"
-              text="Build reusable concepts that could support new teams and evolving requirements without redesigning the entire system."
+              title="Govern and evolve"
+              text="Treat the architecture as a dynamic system, using stakeholder feedback and new requirements to evolve it iteratively."
             />
           </div>
         </div>
@@ -311,18 +370,19 @@ export default function JiraCaseStudy() {
             04 / The Architecture
           </p>
 
-          <div className="mt-5 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <h2 className="max-w-4xl text-[clamp(2.8rem,6vw,5.8rem)] leading-[0.9] font-extrabold tracking-[-0.055em]">
-              CONNECTING WORK
+          <div className="mt-5 grid gap-10 lg:grid-cols-[0.85fr_1fr] lg:items-end">
+            <h2 className="max-w-5xl text-[clamp(2.8rem,6vw,5.8rem)] leading-[0.9] font-extrabold tracking-[-0.055em]">
+              FROM DELIVERY MODEL
               <span className="block">
-                ACROSS LEVELS.
+                TO TOOL ARCHITECTURE.
               </span>
             </h2>
 
             <p className="max-w-xl text-base leading-7 text-background/65 lg:justify-self-end">
-              The architecture created clear relationships between work at
-              portfolio, program and team level while keeping each layer useful
-              for the people working within it.
+              The work model needed to scale across organisational levels
+              without turning every level into an isolated Jira structure.
+              Shared concepts and explicit relationships created the connection
+              between them.
             </p>
           </div>
 
@@ -330,18 +390,60 @@ export default function JiraCaseStudy() {
             <ArchitectureDiagram />
           </div>
 
-          <p className="mt-10 max-w-3xl font-serif text-2xl leading-tight italic text-accent md:text-3xl">
-            Higher-level visibility depended on consistent structures below it
-            — without turning every team into an identical copy.
-          </p>
+          <div className="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <p className="font-serif text-2xl leading-tight italic text-accent md:text-3xl">
+              The hierarchy was only one part of the architecture.
+            </p>
+
+            <p className="max-w-2xl leading-7 text-background/65">
+              The real value came from defining how work items related across
+              levels — creating consistent paths for traceability,
+              dependencies, objectives, risks and reporting.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* DESIGN DECISIONS */}
+      {/* ECOSYSTEM */}
       <CaseStudySection
         number="05"
+        label="The Ecosystem"
+        title="NOT ONE CONFIGURATION. A CONNECTED TOOL LANDSCAPE."
+      >
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {architectureDomains.map((domain) => (
+            <article
+              key={domain.title}
+              className="border border-border p-6 md:p-7"
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-accent">
+                {domain.shortTitle}
+              </p>
+
+              <h3 className="mt-4 text-xl font-bold">
+                {domain.title}
+              </h3>
+
+              <p className="mt-3 leading-7 text-muted">
+                {domain.description}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <p className="mt-12 max-w-3xl font-serif text-2xl leading-tight italic text-accent md:text-3xl">
+          Architecture did not stop at Jira configuration. Permissions,
+          knowledge, organisational data and support all had to fit the same
+          operating model.
+        </p>
+      </CaseStudySection>
+
+      {/* DESIGN DECISIONS */}
+      <CaseStudySection
+        number="06"
         label="Key Design Decisions"
         title="ARCHITECTURE LIVES IN THE DETAILS."
+        surface
       >
         <div className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {designDecisions.map((decision) => (
@@ -365,12 +467,11 @@ export default function JiraCaseStudy() {
         </div>
       </CaseStudySection>
 
-      {/* DELIVERY */}
+      {/* DESIGN TO ADOPTION */}
       <CaseStudySection
-        number="06"
+        number="07"
         label="From Design to Adoption"
         title="A GOOD ARCHITECTURE ONLY WORKS IF PEOPLE CAN USE IT."
-        surface
       >
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {deliverySteps.map((step) => (
@@ -392,13 +493,47 @@ export default function JiraCaseStudy() {
             </article>
           ))}
         </div>
+
+        {/* DOCUMENTATION */}
+        <div className="mt-20 border-t border-border pt-10">
+          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+                Documentation as part of the architecture
+              </p>
+
+              <p className="mt-5 font-serif text-3xl leading-tight italic text-accent md:text-4xl">
+                A system is only maintainable if people understand how and why
+                it works.
+              </p>
+            </div>
+
+            <div>
+              <p className="max-w-2xl text-base leading-7 text-muted md:text-lg md:leading-8">
+                I built structured documentation around the architecture so
+                that configuration decisions and usage guidelines were not
+                limited to the people who originally designed the system.
+              </p>
+
+              <div className="mt-8 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                <DocumentationItem text="Jira project configuration" />
+                <DocumentationItem text="Permission concepts" />
+                <DocumentationItem text="Confluence setup" />
+                <DocumentationItem text="Assets structures" />
+                <DocumentationItem text="Add-ons & integrations" />
+                <DocumentationItem text="Support & knowledge services" />
+              </div>
+            </div>
+          </div>
+        </div>
       </CaseStudySection>
 
       {/* WHAT IT ENABLED */}
       <CaseStudySection
-        number="07"
+        number="08"
         label="What It Enabled"
-        title="THE SYSTEM NEEDED TO WORK BEYOND A SINGLE TEAM."
+        title="STRUCTURE BECAME VISIBILITY."
+        surface
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {outcomes.map((outcome) => (
@@ -416,14 +551,35 @@ export default function JiraCaseStudy() {
             </article>
           ))}
         </div>
+
+        <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <OutcomeExample
+            label="Traceability"
+            value="Epic → Capability → Feature → Story"
+          />
+
+          <OutcomeExample
+            label="Dependencies"
+            value="Blocks · Is blocked by"
+          />
+
+          <OutcomeExample
+            label="Planning"
+            value="Priorities · Capacity · Roadmaps"
+          />
+
+          <OutcomeExample
+            label="Reporting"
+            value="Flow · Predictability · Distribution"
+          />
+        </div>
       </CaseStudySection>
 
       {/* LEARNINGS */}
       <CaseStudySection
-        number="08"
+        number="09"
         label="What I Learned"
         title="COMPLEX SYSTEMS ARE ALSO PEOPLE SYSTEMS."
-        surface
       >
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
           <p className="font-serif text-3xl leading-tight italic text-accent md:text-4xl">
@@ -433,17 +589,17 @@ export default function JiraCaseStudy() {
 
           <div className="space-y-6 text-base leading-7 text-muted md:text-lg md:leading-8">
             <p>
-              Designing at enterprise scale taught me to think beyond individual
-              features. A change to a workflow or data model could influence
-              permissions, reporting, integrations and the way entire teams
-              worked.
+              Designing at enterprise scale taught me to think beyond
+              individual configurations and treat tooling as a connected system. A change to a hierarchy, workflow or
+              data model could influence permissions, reporting, integrations
+              and the way entire teams worked.
             </p>
 
             <p>
               It also reinforced the importance of translating between
-              different perspectives. Technical architecture, business
-              requirements and user behaviour all had to meet in the same
-              system.
+              different perspectives. Methodology, business requirements,
+              technical architecture and user behaviour all had to meet in the
+              same system.
             </p>
 
             <p>
@@ -493,6 +649,7 @@ export default function JiraCaseStudy() {
           </div>
         </div>
       </section>
+      <Footer/>
     </main>
   );
 }
@@ -501,56 +658,431 @@ export default function JiraCaseStudy() {
 /*                              HERO PREVIEW                                  */
 /* -------------------------------------------------------------------------- */
 
-function ArchitecturePreview() {
+function SafeHierarchyPreview() {
+  const levels = [
+    {
+      label: "Portfolio",
+      description: "Strategic direction",
+    },
+    {
+      label: "Solution",
+      description: "Solution Train",
+    },
+    {
+      label: "ART",
+      description: "Cross-team delivery",
+    },
+    {
+      label: "Teams",
+      description: "Day-to-day delivery",
+    },
+  ];
+
   return (
     <div
       aria-hidden="true"
-      className="mx-auto w-full max-w-md lg:justify-self-end"
+      className="mx-auto w-full max-w-sm lg:justify-self-end"
     >
-      <div className="border border-border bg-surface p-6 md:p-8">
-        <ArchitectureLayer
-          label="Portfolio"
-          items={["Strategy", "Initiatives"]}
+      {levels.map((level, index) => (
+        <div key={level.label}>
+          <div className="border border-border bg-surface px-5 py-4">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
+              {level.label}
+            </p>
+
+            <p className="mt-1 text-sm text-muted">
+              {level.description}
+            </p>
+          </div>
+
+          {index < levels.length - 1 && (
+            <div className="flex h-9 justify-center">
+              <div className="relative w-px bg-accent">
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-sm text-accent">
+                  ↓
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           ARCHITECTURE DIAGRAM                             */
+/* -------------------------------------------------------------------------- */
+
+function ArchitectureDiagram() {
+  return (
+    <div>
+      {/* DESKTOP */}
+      <div className="hidden lg:block">
+        <div className="border border-background/15 p-8">
+          {/* COLUMN LABELS */}
+          <div className="grid grid-cols-[8rem_1.15fr_repeat(4,0.8fr)_0.9fr] gap-3 border-b border-background/15 pb-4">
+            <div />
+
+            <DiagramColumnLabel>
+              Core hierarchy
+            </DiagramColumnLabel>
+
+            <DiagramColumnLabel>
+              Risk
+            </DiagramColumnLabel>
+
+            <DiagramColumnLabel>
+              Impediment
+            </DiagramColumnLabel>
+
+            <DiagramColumnLabel>
+              Objective
+            </DiagramColumnLabel>
+
+            <DiagramColumnLabel>
+              Bug
+            </DiagramColumnLabel>
+
+            <DiagramColumnLabel>
+              Supporting
+            </DiagramColumnLabel>
+          </div>
+
+          {/* PORTFOLIO */}
+          <ArchitectureLevelRow
+            level="Portfolio"
+            hierarchy="Epic (Portfolio)"
+            supporting="Sub-task"
+          />
+
+          <ArchitectureLevelConnector
+            hierarchy
+          />
+
+          {/* SOLUTION */}
+          <ArchitectureLevelRow
+            level="Solution"
+            hierarchy="Capability"
+            risk="Risk (Solution)"
+            impediment="Impediment (Solution)"
+            objective="Objective (Solution)"
+            bug="Bug (Solution)"
+            supporting="Sub-task"
+          />
+
+          <ArchitectureLevelConnector
+            hierarchy
+            risk
+            impediment
+            objective
+            bug
+          />
+
+          {/* ART */}
+          <ArchitectureLevelRow
+            level="ART"
+            hierarchy="Feature"
+            risk="Risk (ART)"
+            impediment="Impediment (ART)"
+            objective="Objective (ART)"
+            bug="Bug (ART)"
+            supporting="Sub-task"
+          />
+
+          <ArchitectureLevelConnector
+            hierarchy
+            risk
+            impediment
+            objective
+            bug
+          />
+
+          {/* TEAM */}
+          <ArchitectureLevelRow
+            level="Team"
+            hierarchy="Story"
+            risk="Risk (Team)"
+            impediment="Impediment (Team)"
+            objective="Objective (Team)"
+            bug="Bug (Team)"
+            supporting="Sub-task · Test"
+          />
+
+          {/* SHARED SERVICES */}
+          <div className="mt-10 border-t border-background/15 pt-8">
+            <div className="grid gap-6 lg:grid-cols-[0.65fr_1.35fr]">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+                  Shared Services
+                </p>
+
+                <p className="mt-2 max-w-xs text-sm leading-6 text-background/55">
+                  Services spanning more than one ART could still participate
+                  in the same work model.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <DiagramNode>
+                  Feature
+                </DiagramNode>
+
+                <span
+                  aria-hidden="true"
+                  className="text-accent"
+                >
+                  ↔
+                </span>
+
+                <DiagramNode>
+                  Story
+                </DiagramNode>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* MOBILE / TABLET */}
+      <div className="space-y-4 lg:hidden">
+        <MobileArchitectureLevel
+          level="Portfolio"
+          items={[
+            "Epic (Portfolio)",
+            "Sub-task",
+          ]}
         />
 
-        <Connector />
+        <MobileLevelConnector />
 
-        <ArchitectureLayer
-          label="Program"
-          items={["Features", "Dependencies"]}
+        <MobileArchitectureLevel
+          level="Solution"
+          items={[
+            "Capability",
+            "Risk",
+            "Impediment",
+            "Objective",
+            "Bug",
+            "Sub-task",
+          ]}
         />
 
-        <Connector />
+        <MobileLevelConnector />
 
-        <ArchitectureLayer
-          label="Team"
-          items={["Stories", "Tasks"]}
+        <MobileArchitectureLevel
+          level="ART"
+          items={[
+            "Feature",
+            "Risk",
+            "Impediment",
+            "Objective",
+            "Bug",
+            "Sub-task",
+          ]}
         />
+
+        <MobileLevelConnector />
+
+        <MobileArchitectureLevel
+          level="Teams"
+          items={[
+            "Story",
+            "Risk",
+            "Impediment",
+            "Objective",
+            "Bug",
+            "Sub-task",
+            "Test",
+          ]}
+        />
+      </div>
+
+      {/* FURTHER LINKING */}
+      <div className="mt-10">
+        <FurtherLinkingDiagram />
       </div>
     </div>
   );
 }
 
-type ArchitectureLayerProps = {
-  label: string;
+function DiagramColumnLabel({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return (
+    <p className="text-center text-[0.65rem] font-bold uppercase tracking-[0.12em] text-background/45">
+      {children}
+    </p>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        ARCHITECTURE DESKTOP ROWS                           */
+/* -------------------------------------------------------------------------- */
+
+type ArchitectureLevelRowProps = {
+  level: string;
+  hierarchy?: string;
+  risk?: string;
+  impediment?: string;
+  objective?: string;
+  bug?: string;
+  supporting?: string;
+};
+
+function ArchitectureLevelRow({
+  level,
+  hierarchy,
+  risk,
+  impediment,
+  objective,
+  bug,
+  supporting,
+}: ArchitectureLevelRowProps) {
+  return (
+    <div className="grid min-h-24 grid-cols-[8rem_1.15fr_repeat(4,0.8fr)_0.9fr] items-center gap-3 border-b border-background/10 py-5">
+      <div>
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
+          {level}
+        </p>
+      </div>
+
+      <DiagramNode prominent>
+        {hierarchy}
+      </DiagramNode>
+
+      <DiagramNode>
+        {risk}
+      </DiagramNode>
+
+      <DiagramNode>
+        {impediment}
+      </DiagramNode>
+
+      <DiagramNode>
+        {objective}
+      </DiagramNode>
+
+      <DiagramNode>
+        {bug}
+      </DiagramNode>
+
+      <DiagramNode subtle>
+        {supporting}
+      </DiagramNode>
+    </div>
+  );
+}
+
+type DiagramNodeProps = {
+  children?: ReactNode;
+  prominent?: boolean;
+  subtle?: boolean;
+};
+
+function DiagramNode({
+  children,
+  prominent = false,
+  subtle = false,
+}: DiagramNodeProps) {
+  if (!children) {
+    return <div />;
+  }
+
+  return (
+    <div
+      className={`flex min-h-12 items-center justify-center border px-3 py-3 text-center text-xs font-semibold ${
+        prominent
+          ? "border-accent text-background"
+          : subtle
+            ? "border-background/10 text-background/45"
+            : "border-background/20 text-background/75"
+      }`}
+    >
+      {children}
+    </div>
+  );
+}
+
+type ArchitectureLevelConnectorProps = {
+  hierarchy?: boolean;
+  risk?: boolean;
+  impediment?: boolean;
+  objective?: boolean;
+  bug?: boolean;
+};
+
+function ArchitectureLevelConnector({
+  hierarchy = false,
+  risk = false,
+  impediment = false,
+  objective = false,
+  bug = false,
+}: ArchitectureLevelConnectorProps) {
+  return (
+    <div
+      aria-hidden="true"
+      className="grid h-8 grid-cols-[8rem_1.15fr_repeat(4,0.8fr)_0.9fr] gap-3"
+    >
+      <div />
+
+      <Connector active={hierarchy} />
+      <Connector active={risk} />
+      <Connector active={impediment} />
+      <Connector active={objective} />
+      <Connector active={bug} />
+
+      <div />
+    </div>
+  );
+}
+
+function Connector({
+  active,
+}: {
+  active: boolean;
+}) {
+  if (!active) {
+    return <div />;
+  }
+
+  return (
+    <div className="flex justify-center">
+      <div className="relative h-full w-px bg-accent">
+        <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-xs text-accent">
+          ↓
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        ARCHITECTURE MOBILE                                 */
+/* -------------------------------------------------------------------------- */
+
+type MobileArchitectureLevelProps = {
+  level: string;
   items: string[];
 };
 
-function ArchitectureLayer({
-  label,
+function MobileArchitectureLevel({
+  level,
   items,
-}: ArchitectureLayerProps) {
+}: MobileArchitectureLevelProps) {
   return (
-    <div className="border border-border bg-background p-4">
-      <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
-        {label}
+    <div className="border border-background/15 p-5">
+      <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+        {level}
       </p>
 
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="mt-4 flex flex-wrap gap-2">
         {items.map((item) => (
           <span
             key={item}
-            className="border border-border px-3 py-1.5 text-xs font-semibold text-muted"
+            className="border border-background/20 px-3 py-2 text-xs font-semibold text-background/75"
           >
             {item}
           </span>
@@ -560,131 +1092,194 @@ function ArchitectureLayer({
   );
 }
 
-function Connector() {
-  return (
-    <div className="flex h-10 justify-center">
-      <div className="w-px bg-accent" />
-    </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*                              ARCHITECTURE                                  */
-/* -------------------------------------------------------------------------- */
-
-function ArchitectureDiagram() {
-  return (
-    <div className="border border-background/15 p-5 md:p-8">
-      <ArchitectureRow
-        label="Portfolio"
-        description="Strategic visibility"
-        items={["Initiatives", "Portfolio Items", "Roadmaps"]}
-      />
-
-      <ArchitectureConnection />
-
-      <ArchitectureRow
-        label="Program"
-        description="Cross-team coordination"
-        items={["Features", "Dependencies", "Planning"]}
-      />
-
-      <ArchitectureConnection />
-
-      <ArchitectureRow
-        label="Team"
-        description="Delivery"
-        items={["Stories", "Tasks", "Team Workflows"]}
-      />
-
-      <div className="mt-10 grid gap-4 border-t border-background/15 pt-8 sm:grid-cols-3">
-        <ArchitectureFoundation
-          title="Permissions"
-          text="Who can see and change what?"
-        />
-
-        <ArchitectureFoundation
-          title="Data"
-          text="How does information stay consistent?"
-        />
-
-        <ArchitectureFoundation
-          title="Reporting"
-          text="How does work become visible across levels?"
-        />
-      </div>
-    </div>
-  );
-}
-
-type ArchitectureRowProps = {
-  label: string;
-  description: string;
-  items: string[];
-};
-
-function ArchitectureRow({
-  label,
-  description,
-  items,
-}: ArchitectureRowProps) {
-  return (
-    <div className="grid gap-5 md:grid-cols-[0.65fr_1.35fr] md:items-center">
-      <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
-          {label}
-        </p>
-
-        <p className="mt-1 text-sm text-background/55">
-          {description}
-        </p>
-      </div>
-
-      <div className="grid gap-3 sm:grid-cols-3">
-        {items.map((item) => (
-          <div
-            key={item}
-            className="border border-background/20 px-4 py-5 text-center font-semibold"
-          >
-            {item}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function ArchitectureConnection() {
+function MobileLevelConnector() {
   return (
     <div
       aria-hidden="true"
-      className="my-5 flex h-9 items-center md:ml-[16%]"
+      className="flex h-7 justify-center"
     >
-      <div className="h-full w-px bg-accent" />
-      <span className="ml-3 text-accent">
+      <span className="text-accent">
         ↓
       </span>
     </div>
   );
 }
 
-type ArchitectureFoundationProps = {
+/* -------------------------------------------------------------------------- */
+/*                          FURTHER LINKING                                   */
+/* -------------------------------------------------------------------------- */
+
+function FurtherLinkingDiagram() {
+  return (
+    <div className="border border-background/15 p-5 md:p-8">
+      <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-14">
+        {/* CORE HIERARCHY */}
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+            Core work hierarchy
+          </p>
+
+          <div className="mt-5 space-y-2">
+            <LinkingNode>
+              Epic (Portfolio)
+            </LinkingNode>
+
+            <LinkingArrow />
+
+            <LinkingNode>
+              Capability
+            </LinkingNode>
+
+            <LinkingArrow />
+
+            <LinkingNode>
+              Feature
+            </LinkingNode>
+
+            <LinkingArrow />
+
+            <LinkingNode>
+              Story
+            </LinkingNode>
+          </div>
+        </div>
+
+        {/* RELATIONSHIPS */}
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+            Further relationships
+          </p>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <LinkingRelationship
+              title="Dependencies"
+              text="blocks / is blocked by"
+            />
+
+            <LinkingRelationship
+              title="Risk mitigation"
+              text="mitigation for / mitigated by"
+            />
+
+            <LinkingRelationship
+              title="Objectives"
+              text="realizes / is realized by"
+            />
+
+            <LinkingRelationship
+              title="Testing"
+              text="tests / is tested by"
+            />
+
+            <LinkingRelationship
+              title="Bug ↔ Test"
+              text="creates / is created by"
+            />
+
+            <LinkingRelationship
+              title="Generic relationships"
+              text="duplicates · relates to · clones"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkingNode({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return (
+    <div className="border border-background/20 px-4 py-3 text-center text-sm font-semibold">
+      {children}
+    </div>
+  );
+}
+
+function LinkingArrow() {
+  return (
+    <div
+      aria-hidden="true"
+      className="text-center text-accent"
+    >
+      ↓
+    </div>
+  );
+}
+
+type LinkingRelationshipProps = {
   title: string;
   text: string;
 };
 
-function ArchitectureFoundation({
+function LinkingRelationship({
   title,
   text,
-}: ArchitectureFoundationProps) {
+}: LinkingRelationshipProps) {
   return (
-    <div className="bg-background/5 p-5">
+    <article className="bg-background/5 p-5">
       <h3 className="font-bold">
         {title}
       </h3>
 
       <p className="mt-2 text-sm leading-6 text-background/55">
         {text}
+      </p>
+    </article>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             DOCUMENTATION                                  */
+/* -------------------------------------------------------------------------- */
+
+type DocumentationItemProps = {
+  text: string;
+};
+
+function DocumentationItem({
+  text,
+}: DocumentationItemProps) {
+  return (
+    <div className="flex items-start gap-3 border-t border-border pt-4">
+      <span
+        aria-hidden="true"
+        className="text-accent"
+      >
+        ↳
+      </span>
+
+      <p className="font-semibold">
+        {text}
+      </p>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                OUTCOMES                                    */
+/* -------------------------------------------------------------------------- */
+
+type OutcomeExampleProps = {
+  label: string;
+  value: string;
+};
+
+function OutcomeExample({
+  label,
+  value,
+}: OutcomeExampleProps) {
+  return (
+    <div className="border border-border p-5">
+      <p className="text-xs font-bold uppercase tracking-[0.14em] text-accent">
+        {label}
+      </p>
+
+      <p className="mt-3 text-sm font-semibold leading-6">
+        {value}
       </p>
     </div>
   );
@@ -704,7 +1299,7 @@ function ProjectMeta({
   value,
 }: ProjectMetaProps) {
   return (
-    <div className="py-4 sm:px-5 sm:first:pl-0 lg:border-l lg:border-border lg:px-7 lg:first:border-l-0 lg:first:pl-0">
+    <div className="py-4 lg:border-l lg:border-border lg:px-7 lg:first:border-l-0 lg:first:pl-0">
       <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted">
         {label}
       </p>

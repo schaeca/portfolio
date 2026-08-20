@@ -23,7 +23,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="border-t border-border bg-background py-20 md:py-28 lg:py-32"
+      className="border-t border-border bg-background py-20 md:py-24 lg:py-24 xl:py-28 2xl:py-32"
     >
       <div className="page-container">
         {/* INTRO */}

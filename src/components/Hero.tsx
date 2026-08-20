@@ -3,7 +3,7 @@ import StrategyToCode from "./StrategyToCode";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-20 md:pt-24">
+    <section className="relative lg:min-h-[min(100svh,900px)] overflow-hidden pt-20 md:pt-24">
       <div className="page-container py-12">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           {/* TEXT */}
@@ -22,9 +22,14 @@ export default function Hero() {
             <p className="mt-7 max-w-xl text-base leading-7 text-muted md:mt-8 md:text-lg md:leading-8">
               I'm Carina — a developer with a background in IT consulting,
               combining{" "}
-              <span className="font-semibold text-foreground">system thinking</span>,{" "}
-              <span className="font-semibold text-foreground">user perspective</span> and{" "}
-              <span className="font-semibold text-foreground">code</span> to
+              <span className="font-semibold text-foreground">
+                system thinking
+              </span>
+              ,{" "}
+              <span className="font-semibold text-foreground">
+                user perspective
+              </span>{" "}
+              and <span className="font-semibold text-foreground">code</span> to
               build digital products that make sense.
             </p>
 
@@ -58,10 +63,10 @@ export default function Hero() {
             </div>
 
             {/* CTAs */}
-            <div className="mt-9 grid gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4 md:mt-10">
+            <div className="mt-9 grid gap-3 min-[520px]:flex min-[520px]:flex-wrap min-[520px]:items-center min-[520px]:gap-4 md:mt-10">
               <a
                 href="#work"
-                className="group inline-flex items-center justify-between gap-6 border-2 border-accent bg-accent px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all duration-300 hover:-translate-y-1 sm:min-w-48"
+                className="group inline-flex items-center justify-between gap-6 border-2 border-accent bg-accent px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white transition-all duration-300 hover:-translate-y-1 min-[520px]:min-w-48"
               >
                 View my work
                 <span className="text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -71,7 +76,7 @@ export default function Hero() {
 
               <a
                 href="#about"
-                className="group inline-flex items-center justify-between gap-6 border-2 border-foreground bg-transparent px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:-translate-y-1 hover:bg-foreground hover:text-background sm:min-w-48"
+                className="group inline-flex items-center justify-between gap-6 border-2 border-foreground bg-transparent px-6 py-4 text-sm font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:-translate-y-1 hover:bg-foreground hover:text-background min-[520px]:min-w-48"
               >
                 About me
                 <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
@@ -116,16 +121,16 @@ function CutoutPortrait() {
         alt=""
         loading="eager"
         fetchPriority="high"
-        className="absolute bottom-12 left-1/2 z-10 max-h-97.5 w-auto max-w-full -translate-x-1/2 object-contain transition-transform duration-500 ease-out hover:scale-[1.015] md:bottom-12 md:max-h-125 lg:bottom-0 lg:max-h-150"
+        className="absolute bottom-12 left-1/2 z-10 max-h-97.5 w-auto max-w-full -translate-x-1/2 object-contain transition-transform duration-500 ease-out hover:scale-[1.015] md:bottom-12 md:max-h-125 lg:bottom-0 lg:left-[38%] lg:max-h-150 xl:left-1/2"
       />
 
       {/* caption */}
-      <div className="absolute bottom-0 left-1/2 z-20 w-full -translate-x-1/2 text-center lg:bottom-5 lg:left-0 lg:w-auto lg:translate-x-0 lg:text-left">
+      <div className="absolute bottom-0 left-1/2 z-20 w-full -translate-x-1/2 text-center lg:bottom-20 lg:left-auto lg:right-0 lg:w-auto lg:translate-x-0 lg:text-right">
         <p className="text-xs font-bold uppercase tracking-[0.12em] text-foreground md:text-sm">
           Carina Schädlich
         </p>
 
-        <p className="mt-1 text-xs leading-5 text-muted md:text-sm md:leading-6">
+        <p className="mt-1 text-xs leading-5 text-muted md:text-sm md:leading-6 whitespace-nowrap">
           Frontend / Full-Stack Developer
         </p>
       </div>

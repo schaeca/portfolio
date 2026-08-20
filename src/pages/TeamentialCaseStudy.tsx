@@ -1,12 +1,13 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router";
 
-import dashboardImage from "../assets/projects/teamential/dashboard.png";
-import landingPageImage from "../assets/projects/teamential/landing-page.png";
-import matchDayDetailImage from "../assets/projects/teamential/match-day-detail.png";
-import playerProfileImage from "../assets/projects/teamential/player-profile.png";
-import squadEditImage from "../assets/projects/teamential/squad-edit.png";
-import squadOverviewImage from "../assets/projects/teamential/squad-overview.png";
+import dashboardImage from "../assets/projects/teamential/dashboard.webp";
+import landingPageImage from "../assets/projects/teamential/landing-page.webp";
+import matchDayDetailImage from "../assets/projects/teamential/match-day-detail.webp";
+import playerProfileImage from "../assets/projects/teamential/player-profile.webp";
+import squadEditImage from "../assets/projects/teamential/squad-edit.webp";
+import squadOverviewImage from "../assets/projects/teamential/squad-overview.webp";
+import Footer from "../components/Footer";
 
 const features = [
   {
@@ -131,7 +132,7 @@ export default function TeamentialCaseStudy() {
         </div>
 
         {/* PROJECT META */}
-        <div className="mt-16 grid border-y border-border py-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+        <div className="mt-16 grid border-y border-border py-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4 lg:gap-x-0">
           <ProjectMeta label="Role" value="Full-Stack Developer" />
 
           <ProjectMeta label="Focus" value="Product · UX · Development" />
@@ -610,6 +611,7 @@ export default function TeamentialCaseStudy() {
           </div>
         </div>
       </section>
+      <Footer/>
     </main>
   );
 }
@@ -625,7 +627,7 @@ type ProjectMetaProps = {
 
 function ProjectMeta({ label, value }: ProjectMetaProps) {
   return (
-    <div className="py-4 sm:px-5 sm:first:pl-0 lg:border-l lg:border-border lg:px-7 lg:first:border-l-0 lg:first:pl-0">
+    <div className="py-4 lg:border-l lg:border-border lg:px-7 lg:first:border-l-0 lg:first:pl-0">
       <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted">
         {label}
       </p>

@@ -10,23 +10,45 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const content = (
     <>
       {/* CATEGORY */}
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex items-center justify-between gap-4">
         <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">
           {project.number} / {project.category}
         </p>
 
         {project.status && (
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">
+          <span className="shrink-0 text-xs font-semibold uppercase tracking-widest text-accent">
             {project.status}
           </span>
         )}
       </div>
 
-      {/* VISUAL */}
+      {/* PROJECT VISUAL */}
+<div className="aspect-16/10 overflow-hidden">
+  {project.previewImage ? (
+    <div className="h-full w-full overflow-hidden border border-border bg-surface">
+      <img
+        src={project.previewImage}
+        alt={project.previewAlt ?? ""}
+        loading="lazy"
+        className={`h-full w-full object-cover ${
+          project.previewPosition ?? "object-center"
+        } transition-transform duration-500 ${
+          project.href ? "group-hover:scale-[1.025]" : ""
+        }`}
+      />
+    </div>
+  ) : (
+    <div className="h-full w-full *:h-full *:w-full">
       <ProjectVisual type={project.type} />
+    </div>
+  )}
+</div>
 
       {/* CONTENT */}
       <div className="mt-6 flex flex-1 flex-col">
+        
+
+        {/* TITLE */}
         <h3
           className={`text-2xl font-extrabold uppercase tracking-[-0.035em] ${
             project.href
@@ -37,9 +59,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.title}
         </h3>
 
+        {/* DESCRIPTION */}
         <p className="mt-3 max-w-md text-sm leading-6 text-muted">
           {project.description}
         </p>
+
+        {/* BADGE */}
+        {project.badge && (
+          <p className="mt-3 flex items-center gap-2 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-accent">
+            <span aria-hidden="true">
+              ✦
+            </span>
+
+            {project.badge}
+          </p>
+        )}
 
         {/* TAGS */}
         <div className="mt-auto flex flex-wrap gap-2 pt-5">

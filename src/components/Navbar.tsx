@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CVLink from "./CVLink";
+import CVDownload from "./CVDownload";
 
 const navItems = [
   { label: "Work", href: "#work" },
@@ -37,17 +37,14 @@ export default function Navbar() {
 
     const previousOverflow = document.body.style.overflow;
 
-    
-    const main =
-    document.querySelector("main");
-    
-    const footer =
-    document.querySelector("footer");
-    
+    const main = document.querySelector("main");
+
+    const footer = document.querySelector("footer");
+
     document.body.style.overflow = "hidden";
 
     main?.setAttribute("inert", "");
-  footer?.setAttribute("inert", "");
+    footer?.setAttribute("inert", "");
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -60,24 +57,22 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = previousOverflow;
       main?.removeAttribute("inert");
-    footer?.removeAttribute("inert");
+      footer?.removeAttribute("inert");
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen]);
 
   return (
     <header
-       className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-    isScrolled && !isOpen
-      ? "border-b border-border/60 bg-background/90 backdrop-blur-md"
-      : "bg-transparent"
-  }`}
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        isScrolled && !isOpen
+          ? "border-b border-border/60 bg-background/90 backdrop-blur-md"
+          : "bg-transparent"
+      }`}
     >
       <nav
         className={`page-container flex items-center justify-between transition-[height] duration-300 ${
-          isScrolled && !isOpen
-            ? "h-16"
-            : "h-20 lg:h-24"
+          isScrolled && !isOpen ? "h-16" : "h-20 lg:h-24"
         }`}
       >
         {/* LOGO */}
@@ -101,16 +96,17 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <CVLink className="text-sm"/>
+          <CVDownload
+            menuAlign="right"
+            className="text-sm font-semibold uppercase tracking-[0.08em] transition-colors hover:text-accent"
+          />
         </nav>
 
         {/* MOBILE HAMBURGER */}
         <button
           type="button"
           className="relative z-50 flex h-11 w-11 items-center justify-center lg:hidden"
-          aria-label={
-            isOpen ? "Close navigation" : "Open navigation"
-          }
+          aria-label={isOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsOpen((prev) => !prev)}
@@ -118,9 +114,7 @@ export default function Navbar() {
           <span className="relative block h-5 w-7">
             <span
               className={`absolute left-0 h-0.5 w-7 bg-foreground transition-all duration-300 ${
-                isOpen
-                  ? "top-2 rotate-45"
-                  : "top-0"
+                isOpen ? "top-2 rotate-45" : "top-0"
               }`}
             />
 
@@ -132,9 +126,7 @@ export default function Navbar() {
 
             <span
               className={`absolute left-0 h-0.5 w-7 bg-foreground transition-all duration-300 ${
-                isOpen
-                  ? "top-2 -rotate-45"
-                  : "top-4"
+                isOpen ? "top-2 -rotate-45" : "top-4"
               }`}
             />
           </span>
@@ -171,18 +163,19 @@ export default function Navbar() {
 
           {/* CV action */}
           <div className="mt-2 py-4">
-            <CVLink className="text-[clamp(1.4rem,5vw,2rem)] font-semibold tracking-[-0.03em]"/>
+            <CVDownload
+  className="text-[clamp(1.4rem,5vw,2rem)] font-semibold"
+  menuAlign="left"
+/>
           </div>
 
-            {/* Footer */}
+          {/* Footer */}
           <div className="mt-auto pb-10">
             <p className="text-sm text-muted">
               Frontend / Full-Stack Developer
             </p>
 
-            <p className="mt-1 text-sm text-muted">
-              Augsburg, Germany
-            </p>
+            <p className="mt-1 text-sm text-muted">Augsburg, Germany</p>
           </div>
         </nav>
       </nav>

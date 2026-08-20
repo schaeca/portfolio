@@ -41,10 +41,40 @@ export default function StrategyToCode() {
       const rect = containerRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
-      const start = viewportHeight * 0.85;
-      const end = viewportHeight * 0.35;
+      /*
+       * Absolute position of the component inside the document.
+       * Unlike rect.top alone, this does not change depending on
+       * the current scroll position.
+       */
+      const elementTop = rect.top + window.scrollY;
 
-      const rawProgress = (start - rect.top) / (start - end);
+      /*
+       * Normally the animation begins shortly before the component
+       * enters the lower part of the viewport.
+       *
+       * On very tall screens that value could become negative.
+       * Math.max(0, ...) guarantees that the animation NEVER starts
+       * before the top of the page.
+       */
+      const startScroll = Math.max(
+        0,
+        elementTop - viewportHeight * 0.85,
+      );
+
+      /*
+       * Give the animation a predictable scroll distance instead of
+       * calculating its end solely from viewport coordinates.
+       *
+       * Short viewport: minimum 240px
+       * Large viewport: maximum 420px
+       */
+      const travelDistance = Math.min(
+        420,
+        Math.max(240, viewportHeight * 0.35),
+      );
+
+      const rawProgress =
+        (window.scrollY - startScroll) / travelDistance;
 
       const clampedProgress = Math.min(
         1,
@@ -54,24 +84,34 @@ export default function StrategyToCode() {
       setProgress(clampedProgress);
     };
 
-    const handleScroll = () => {
+    const requestUpdate = () => {
       cancelAnimationFrame(animationFrameId);
-      animationFrameId = requestAnimationFrame(updateProgress);
+
+      animationFrameId = requestAnimationFrame(
+        updateProgress,
+      );
     };
 
-    updateProgress();
+    requestUpdate();
 
-    window.addEventListener("scroll", handleScroll, {
+    window.addEventListener("scroll", requestUpdate, {
       passive: true,
     });
 
-    window.addEventListener("resize", updateProgress);
+    window.addEventListener("resize", requestUpdate);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
 
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", updateProgress);
+      window.removeEventListener(
+        "scroll",
+        requestUpdate,
+      );
+
+      window.removeEventListener(
+        "resize",
+        requestUpdate,
+      );
     };
   }, []);
 
@@ -79,7 +119,6 @@ export default function StrategyToCode() {
     const isActive = activeIndex === index;
 
     return `
-      whitespace-nowrap
       transition-all
       duration-300
       ${
@@ -112,7 +151,7 @@ export default function StrategyToCode() {
           className="relative h-px bg-secondary/40"
           aria-hidden="true"
         >
-          {/* progress line */}
+          {/* PROGRESS LINE */}
           <div
             className="absolute inset-y-0 left-0 bg-accent"
             style={{
@@ -120,7 +159,7 @@ export default function StrategyToCode() {
             }}
           />
 
-          {/* moving point */}
+          {/* MOVING POINT */}
           <div
             className="absolute top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-accent bg-background"
             style={{
@@ -142,63 +181,62 @@ export default function StrategyToCode() {
           Code
         </span>
 
-        {/* empty first grid column */}
+        {/* EMPTY FIRST GRID COLUMN */}
         <div />
 
         {/* DESKTOP LABELS */}
         <div className="mt-5 hidden grid-cols-[1fr_auto_1fr] items-center gap-x-[clamp(2rem,4vw,5rem)] text-xs md:grid lg:text-sm">
           {/* LEFT */}
           <div className="flex justify-end gap-x-[clamp(2rem,4vw,5rem)]">
-            <span className={getLabelClasses(0)}>
+            <span
+              className={`${getLabelClasses(0)} whitespace-nowrap`}
+            >
               Consulting
             </span>
 
-            <span className={getLabelClasses(1)}>
-              People
+            <span
+              className={`${getLabelClasses(1)} whitespace-nowrap`}
+            >
+              User Perspective
             </span>
           </div>
 
           {/* CENTER */}
-          <span className={getLabelClasses(2)}>
+          <span
+            className={`${getLabelClasses(2)} whitespace-nowrap`}
+          >
             Problem Solving
           </span>
 
           {/* RIGHT */}
           <div className="flex justify-start gap-x-[clamp(2rem,4vw,5rem)]">
-            <span className={getLabelClasses(3)}>
+            <span
+              className={`${getLabelClasses(3)} whitespace-nowrap`}
+            >
               Development
             </span>
 
-            <span className={getLabelClasses(4)}>
+            <span
+              className={`${getLabelClasses(4)} whitespace-nowrap`}
+            >
               Products
             </span>
           </div>
         </div>
 
-        {/* empty last grid column */}
+        {/* EMPTY LAST GRID COLUMN */}
         <div />
       </div>
 
       {/* MOBILE LABELS */}
-      <div className="mt-5 flex flex-wrap justify-center gap-x-2 gap-y-2 text-center text-xs md:hidden">
+      <div className="mt-5 grid grid-cols-5 gap-1 text-center text-[0.625rem] leading-[1.15] min-[480px]:text-xs md:hidden">
         {journeyItems.map((item, index) => (
-          <div
+          <span
             key={item}
-            className="flex items-center gap-2"
+            className={`${getLabelClasses(index)} flex min-h-8 items-start justify-center`}
           >
-            <span className={getLabelClasses(index)}>
-              {item}
-            </span>
-
-            {index < journeyItems.length - 1 && (
-              <span
-                className="text-border"
-                aria-hidden="true"
-              >
-                ·
-              </span>
-            )}
-          </div>
+            {item}
+          </span>
         ))}
       </div>
     </div>

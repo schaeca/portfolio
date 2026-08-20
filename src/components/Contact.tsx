@@ -1,4 +1,4 @@
-import CVLink from "./CVLink";
+import CVDownload from "./CVDownload";
 
 const contactLinks = [
   {
@@ -19,7 +19,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="border-t border-border bg-foreground py-20 text-background md:py-28 lg:py-32"
+      className="border-t border-border bg-foreground text-background py-20 md:py-24 lg:py-24 xl:py-28 2xl:py-32"
     >
       <div className="page-container">
         <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-accent">
@@ -74,7 +74,9 @@ export default function Contact() {
                   </span>
                 </a>
               ))}
-              <CVLink/>
+              <CVDownload
+  className="text-base font-bold uppercase tracking-[0.08em] transition-colors hover:text-accent"
+/>
             </div>
           </div>
         </div>
