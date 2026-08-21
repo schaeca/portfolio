@@ -94,7 +94,7 @@ export default function TeamentialCaseStudy() {
               01 / Case Study
             </p>
 
-            <h1 className="mt-5 text-[clamp(4rem,11vw,9rem)] leading-[0.82] font-extrabold tracking-[-0.065em] min-[401px]:text-[clamp(4rem,11vw,9rem)] lg:text-[clamp(4rem,7vw,7.5rem)]">
+            <h1 className="mt-5 text-[clamp(2.5rem,10vw,4rem)] leading-[0.82] font-extrabold tracking-[-0.065em] min-[401px]:text-[clamp(4rem,11vw,9rem)] lg:text-[clamp(4rem,7vw,7.5rem)]">
               TEAMENTIAL
               <span className="text-accent">.</span>
             </h1>

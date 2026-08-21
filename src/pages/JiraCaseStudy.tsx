@@ -194,7 +194,7 @@ export default function JiraCaseStudy() {
               02 / Case Study
             </p>
 
-            <h1 className="mt-5 max-w-5xl text-[clamp(3.5rem,8vw,8rem)] leading-[0.84] font-extrabold tracking-[-0.065em]">
+            <h1 className="mt-5 max-w-5xl text-[clamp(2.5rem,10vw,4rem)] leading-[0.84] font-extrabold tracking-[-0.065em]">
               JIRA
               <span className="block">
                 ARCHITECTURE
