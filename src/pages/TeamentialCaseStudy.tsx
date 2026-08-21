@@ -71,7 +71,7 @@ const technicalDecisions = [
 
 export default function TeamentialCaseStudy() {
   return (
-    <main id="main-content" className="bg-background text-foreground">
+    <main id="main-content" className="overflow-x-clip bg-background text-foreground">
       {/* HERO */}
       <section className="page-container pt-8 pb-20 md:pt-10 md:pb-28 lg:pb-36">
         <Link
@@ -89,12 +89,12 @@ export default function TeamentialCaseStudy() {
 
         <div className="mt-20 grid gap-12 md:mt-28 lg:grid-cols-[1.15fr_0.55fr] lg:items-center lg:gap-16">
           {/* HERO TEXT */}
-          <div>
+          <div className="min-w-0">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
               01 / Case Study
             </p>
 
-            <h1 className="mt-5 text-[clamp(4rem,11vw,9rem)] leading-[0.82] font-extrabold tracking-[-0.065em] lg:text-[clamp(4rem,7vw,7.5rem)]">
+            <h1 className="mt-5 text-[clamp(4rem,11vw,9rem)] leading-[0.82] font-extrabold tracking-[-0.065em] min-[401px]:text-[clamp(4rem,11vw,9rem)] lg:text-[clamp(4rem,7vw,7.5rem)]">
               TEAMENTIAL
               <span className="text-accent">.</span>
             </h1>
@@ -120,7 +120,7 @@ export default function TeamentialCaseStudy() {
 
 
           {/* PRODUCT PREVIEW */}
-          <div className="mx-auto w-full max-w-sm lg:mx-0 lg:justify-self-end">
+          <div className="min-w-0 mx-auto w-full max-w-sm lg:mx-0 lg:justify-self-end">
             <ScreenshotFrame>
               <img
                 src={landingPageImage}
@@ -132,7 +132,7 @@ export default function TeamentialCaseStudy() {
         </div>
 
         {/* PROJECT META */}
-        <div className="mt-16 grid border-y border-border py-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4 lg:gap-x-0">
+        <div className="min-w-0 mt-16 grid border-y border-border py-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4 lg:gap-x-0">
           <ProjectMeta label="Role" value="Full-Stack Developer" />
 
           <ProjectMeta label="Focus" value="Product · UX · Development" />

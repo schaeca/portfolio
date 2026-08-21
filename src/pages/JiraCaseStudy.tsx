@@ -169,7 +169,7 @@ export default function JiraCaseStudy() {
   return (
     <main
       id="main-content"
-      className="bg-background text-foreground"
+      className="overflow-x-clip bg-background text-foreground"
     >
       {/* HERO */}
       <section className="page-container pt-8 pb-20 md:pt-10 md:pb-28 lg:pb-36">
@@ -189,7 +189,7 @@ export default function JiraCaseStudy() {
 
         <div className="mt-20 grid gap-14 md:mt-28 lg:grid-cols-[1.1fr_0.55fr] lg:items-center lg:gap-20">
           {/* HERO TEXT */}
-          <div>
+          <div className="min-w-0">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
               02 / Case Study
             </p>
@@ -220,7 +220,9 @@ export default function JiraCaseStudy() {
           </div>
 
           {/* SAFe PREVIEW */}
+          <div className="min-w-0">
           <SafeHierarchyPreview />
+          </div>
         </div>
 
         {/* META */}

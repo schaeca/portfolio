@@ -88,18 +88,24 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* ACTION */}
-        <div className="mt-6 flex justify-end">
-          <span
-            aria-hidden="true"
-            className={`flex h-10 w-10 items-center justify-center rounded-full border text-lg transition-all duration-300 ${
-              project.href
-                ? "border-foreground group-hover:-rotate-45 group-hover:bg-foreground group-hover:text-background"
-                : "border-border text-muted"
-            }`}
-          >
-            →
-          </span>
-        </div>
+<div className="mt-6">
+  {project.href ? (
+    <span
+      aria-hidden="true"
+      className="inline-flex items-center justify-between gap-6 border-2 border-foreground px-5 py-3 text-xs font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white"
+    >
+      View case study
+
+      <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
+        →
+      </span>
+    </span>
+  ) : (
+    <span className="inline-flex items-center gap-2 py-3 text-xs font-bold uppercase tracking-[0.08em] text-muted">
+      Case study coming soon
+    </span>
+  )}
+</div>
       </div>
     </>
   );
